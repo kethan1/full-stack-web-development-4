@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+{% block pagetitle %}
+  Login
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <form style="text-align: center; border: 2px solid black; border-radius: 1vw; padding: 0.75vw" class="centeralign" method="POST">
+      <div class="input-field">
+        <i class="material-icons prefix unselectable">email</i>
+        <input class="validate" id="email1" type="email" name="email" required>
+        <label for="email1">Email</label>
+      </div>
+      <div class="input-field">
+        <a onclick="ShowPassword()"><i class="unselectable postfix mdi mdi-arrow-right material-icons" style="color: black;">remove_red_eye</i></a>
+        <i class="material-icons prefix unselectable">lock</i>
+        <input id="pwd" class="text-font" type="password" name="password">
+        <label for="pwd">Password</label>
+      </div>
+      <button class="waves-effect waves-light btn" type="submit">Login</button>
+      <br>
+    </form>
+    <br>
+    <br>
+  </div>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+{% block extra_in_head %}
+    <meta http-equiv="refresh" content="60">
+{% endblock %}
+
+{% block desktopLinks %}
+    <ul class="right hide-on-med-and-down">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+{% endblock %}
+
+{% block mobileLinks %}
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+{% endblock %}
+
+{% block pagetitle %}
+Home
+{% endblock %}
+
+{% block content %}
+    <div style="text-align: center;">
+        <p>Name: {{ logged_in['first_name'] }} {{ logged_in['last_name'] }}</p>
+        <p>Email: {{ logged_in['email'] }}</p>
+
+        {% if time_diff < 1 %}
+            <p>Log In Time: {{ moment(logged_in['logged_in_time']).fromNow() }}</p>
+        {% else %}
+            <p>Log In Time: {{ moment(logged_in['logged_in_time']).format('LLLL') }}</p>
+        {% endif %}
+    </div>
+
+
+{% endblock %}

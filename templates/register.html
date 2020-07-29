@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Register{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+{% block pagetitle %}
+  Sign Up
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <form style="text-align: center; border: 2px solid black; border-radius: 1vw; padding: 0.75vw" class="centeralign" method="POST">
+      <div class="input-field">
+        <i class="material-icons prefix unselectable">account_circle</i>
+        <input class="validate" id="first_name1" type="text" name="first_name" required>
+        <label for="first_name1">First Name</label>
+      </div>
+      <div class="input-field">
+        <i class="material-icons prefix unselectable">account_circle</i>
+        <input class="validate" id="last_name1" type="text" name="last_name" required>
+        <label for="last_name1">Last Name</label>
+      </div>
+      <div class="input-field">
+        <i class="material-icons prefix unselectable">email</i>
+        <input class="validate" id="email1" type="email" name="email" required>
+        <label for="email1">Email</label>
+      </div>
+      <div class="input-field">
+        <a onclick="ShowPassword()"><i class="unselectable postfix mdi mdi-arrow-right material-icons" style="color: black;">remove_red_eye</i></a>
+        <i class="material-icons prefix unselectable">lock</i>
+        <input id="pwd" class="text-font" type="password" name="password">
+        <label for="pwd">Password</label>
+      </div>
+      <div class="input-field">
+        <a onclick="ShowPassword2()"><i class="unselectable postfix mdi mdi-arrow-right material-icons" style="color: black;">remove_red_eye</i></a>
+        <i class="material-icons prefix unselectable">lock</i>
+        <input id="pwd2" class="text-font" type="password" name="confirm_password">
+        <label for="pwd2">Confirm Password</label>
+      </div>
+      <button class="waves-effect waves-light btn" type="submit">Register</button>
+      <br>
+    </form>
+    <br>
+    <br>
+  </div>
+{% endblock %}

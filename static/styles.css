@@ -1,0 +1,42 @@
+.header {
+    padding-top: 2vw;
+    padding-bottom: 2vw;
+    color: white;
+    background-image: linear-gradient(to right, #2c4f53, #7fa58c, #ccce8f);
+}
+
+.footer {
+    color: white;
+    position:fixed;
+    left:0px;
+    bottom:0px;
+    height:10px;
+    width:100%;
+    z-index: 100;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background: #ef6e73;
+}
+
+.text-font{
+    font-family: 'Courier New';
+    font-weight: bold;
+}
+
+.input-field .postfix ~ input { width: 80%; width:calc(100% - 3rem);  margin-left:0px; margin-right: 3rem!important; }
+.input-field .postfix {
+    position: absolute;
+    width: 3rem;
+    right: 0px;
+}
+
+.unselectable {
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10+ and Edge */
+    user-select: none; /* Standard syntax */
+}
+
+.centeralign {
+    margin-right: auto;
+    margin-left: auto;
+}

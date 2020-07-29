@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles.css') }}">
+    <title>{% block title %}{% endblock %} - Full Stack Web Development 4</title>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static',filename='images/favicon.ico') }}"/>
+    <script src="{{ url_for('static', filename='show_password.js') }}"></script>
+    {% block extra_in_head %}
+    {% endblock %}
+    {{ moment.include_jquery() }}
+    {{ moment.include_moment() }}
+</head>
+<body>
+
+    {% set pagetitle %}
+        {% block pagetitle %} {% endblock %}
+    {% endset %}
+
+    <div>
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <script>
+                        M.toast({html: '<span>{{ message }}</span><button class="btn-flat toast-action" style="color: white;" onclick="M.Toast.dismissAll();">X</button>', classes: 'rounded'})
+                    </script>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    {% block navbar %}
+      <div class="row">
+        <div class="l12 show-on-large hide-on-med-and-down">
+          <nav>
+            <div class="nav-wrapper">
+                {% block desktopLinks %}
+                  <ul class="right hide-on-med-and-down">
+                    <li><a href="/">Register</a></li>
+                    <li><a href="/login">Login</a></li>
+                  </ul>
+                {% endblock %}
+
+              <div style="height: 100%;" class="row brand-logo">
+                <div style="height: 100%" class="col s3">
+                  <img src="{{ url_for('static',filename='images/favicon.ico') }}" style="height: 100%;">
+                </div>
+                <div class="col s9">
+                  <span style="color: white;" class="flow-text">Web Development 4</span>
+                </div>
+              </div>
+
+              <div style="text-align: center; color: white; font-size: 3.5vw">
+                  <div style="padding-left: 11%">{{ pagetitle }}</div>
+              </div>
+
+            </div>
+          </nav>
+        </div>
+        <div class="s12 m12 show-on-medium-and-down hide-on-large-only">
+          <nav>
+            <div class="nav-wrapper">
+              <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+              <div style="height: 100%;" class="row brand-logo">
+                <div style="height: 100%" class="col s3">
+                  <img src="{{ url_for('static',filename='images/favicon.ico') }}" style="height: 100%;">
+                </div>
+                <div class="col s9">
+                  <span style="color: white;" class="flow-text">Web Development 4</span>
+                </div>
+              </div>
+
+            </div>
+          </nav>
+          <br>
+          <div style="text-align: center; color: black; font-size: 4vw">
+            {{ pagetitle }}
+          </div>
+        </div>
+      </div>
+        {% block mobileLinks %}
+            <ul class="sidenav" id="mobile-demo">
+              <li><a href="/">Register</a></li>
+              <li><a href="/login">Login</a></li>
+            </ul>
+        {% endblock %}
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elems = document.querySelectorAll('.sidenav');
+                var instances = M.Sidenav.init(elems);
+            });
+          </script>
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+
+    {% block footer %}
+        <footer class="footer">
+            <div style="text-align: right; padding-right: 1vw; position:relative; bottom: 10px;" class="footer-copyright">
+                © {{ year }} Copyright Kethan
+            </div>
+        </footer>
+    {% endblock %}
+</body>
+</html>
